@@ -7,8 +7,6 @@ image_classification_flask_app/static/uploads/*
 .DS_Store
 .venv/
 
-
-   
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

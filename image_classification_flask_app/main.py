@@ -1,3 +1,4 @@
+import sys
 import os
 import json
 import torch
@@ -9,9 +10,9 @@ from PIL import Image
 from model.model import MResnet
 
 model = MResnet(in_channels=3,num_classes=100)
-model.load_state_dict(torch.load('./model/full_train.pth'))
+model.load_state_dict(torch.load('./image_classification_flask_app/model/full_train.pth'))
 
-with open('./model/classes.json', 'r') as infile:
+with open('./image_classification_flask_app/model/classes.json', 'r') as infile:
     data = json.loads(infile.read())
 classes = data['classes']
 
@@ -67,4 +68,6 @@ def display_image(filename):
     return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 if __name__ == "__main__":
-    app.run()
+    if "serve" in sys.argv:
+        app.run(host='0.0.0.0', port=8080, debug=False)
+        # uvicorn.run(app, host="0.0.0.0", port=8080)
