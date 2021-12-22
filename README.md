@@ -4,7 +4,7 @@
 
 This repository is a simple flask app which runs a custom ResNet neural network trained on the CIFAR100 dataset. Given an input image, this application returns one of CIFAR's 100 image classifications.
 
-![sample](./images/example.png)
+<img src="./images/example.png" width="250" height="250"/>
 
 ## Run Docker
 ```
