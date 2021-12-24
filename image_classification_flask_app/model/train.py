@@ -2,7 +2,7 @@ import torch
 # import jovian
 import torchvision
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import torch.nn as nn
 import torch.nn.functional as F
 from torchvision.datasets import CIFAR100
