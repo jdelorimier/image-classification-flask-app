@@ -2,6 +2,7 @@
 local/
 data/
 image_classification_flask_app/static/uploads/*
+!image_classification_flask_app/static/uploads/.gitkeep 
 
 # 
 .DS_Store
