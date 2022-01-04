@@ -26,10 +26,11 @@ def image_predict(image_path):
     prod_transform = transforms.Compose(
        [
        transforms.Resize(35),
+       transforms.CenterCrop(35),
        transforms.ToTensor(),
        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
        ])
-    image = Image.open(image_path)
+    image = Image.open(image_path).convert('RGB')
     img_tensor = prod_transform(image).to('cpu').unsqueeze(0)
     model_output = model(img_tensor)
     _, predicted = torch.max(model_output, 1)
@@ -71,3 +72,5 @@ if __name__ == "__main__":
     if "serve" in sys.argv:
         app.run(host='0.0.0.0', port=8080, debug=False)
         # uvicorn.run(app, host="0.0.0.0", port=8080)
+    else: 
+        app.run(host='0.0.0.0', port=8081, debug=False)
