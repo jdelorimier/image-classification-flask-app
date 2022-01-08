@@ -71,6 +71,3 @@ def display_image(filename):
 if __name__ == "__main__":
     if "serve" in sys.argv:
         app.run(host='0.0.0.0', port=8080, debug=False)
-        # uvicorn.run(app, host="0.0.0.0", port=8080)
-    else: 
-        app.run(host='0.0.0.0', port=8081, debug=False)
